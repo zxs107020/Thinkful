@@ -16,7 +16,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 
 # Define the variables
-wd = '/Users/zansadiq/Documents/Code/local/segmentation'
+wd = '/path/to/files'
 url = 'https://archive.ics.uci.edu/ml/machine-learning-databases/00222/bank-additional.zip'
 fn = 'bank-additional.zip'
 path = 'staging/bank-additional'
