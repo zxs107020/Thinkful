@@ -6,6 +6,62 @@ Created on Fri Apr 27 12:01:16 2018
 @author: zxs107020
 """
 
+import pandas as pd
+
+# Function for importing data
+def dat_imp(wd, url, fn, path, header, sep, target):
+    
+    # Import the required libraries
+    import os
+    import requests
+    import zipfile
+    import glob
+    
+    # Grab the data
+    r = requests.get(url)
+    
+    # Set the working directory
+    os.chdir(wd)
+    
+    # Create a file for data storage
+    staging_dir = "staging"
+    
+    # Conditional execution of directory creation
+    try:
+        os.mkdir(staging_dir)
+    except OSError:
+        pass
+    
+    # Machine independent path to create files
+    zip_file = os.path.join(staging_dir, fn)
+
+    # Write the file to the computer
+    zf = open(zip_file,"wb")
+    zf.write(r.content)
+    zf.close()
+
+    # Unzip the files
+    z = zipfile.ZipFile(zip_file,"r")
+    z.extractall(staging_dir)
+    z.close()
+
+    # Extract the .csv's
+    files = glob.glob(os.path.join(path + "/*.csv"))
+
+    # Create an empty dictionary to hold the dataframes from csvs
+    dict_ = {}
+
+    # Write the files into the dictionary
+    for file in files:
+        fname = os.path.basename(file)
+        fname = fname.replace('.csv', '')
+        dict_[fname] = pd.read_csv(file, header = header, sep = sep)
+    
+    # Extract the dataframes
+    data = dict_[target]
+    
+    return data
+    
 # Function for splitting data into training, validation, and testing sets
 def separate(data, target, size):    
 
