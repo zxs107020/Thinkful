@@ -2,7 +2,7 @@ This folder contains a series of Jupyter notebooks.
 
 These notebooks are lesson plans for Thinkful.com's Data Science Events.
 
-This is original content created by me for the purpose of leading students in the Thinkful workshops. 
+This is original content created by me for the purpose of leading students in the Data Science workshops hosted by Thinkful.com. 
 
 Topics include:
 
