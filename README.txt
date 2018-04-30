@@ -10,4 +10,10 @@ Topics include:
 
 1. Predicting the Oscars with Decision Trees and Random Forests
 
-2. Using NLP to plan a vacation
+2. Using NLP to Plan a Vacation
+
+3. Logistic Regression to Predict Enrollment
+
+4. PCA & Feature Selection to Improve Enrollment Predictions
+
+5. Using KNN & K-Means to Segment Customers
